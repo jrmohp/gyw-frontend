@@ -6,6 +6,8 @@ export const tokens = {
     academy: 'nav.academy',
     account: 'nav.account',
     tpaadd: 'nav.tpaadd',
+    linkedAccounts: 'nav.linkedAccounts',
+    addLinkedAccounts : 'nav.addLinkedAccounts',
     analytics: 'nav.analytics',
     auth: 'nav.auth',
     blog: 'nav.blog',

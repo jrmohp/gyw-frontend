@@ -48,6 +48,25 @@ export const useSections = () => {
             ),
           },
           {
+            title: t(tokens.nav.linkedAccounts),
+            path: paths.linkedaccounts.index,
+            icon: (
+              <SvgIcon fontSize="small">
+                <Users03Icon />
+              </SvgIcon>
+            ),
+            items: [
+              {
+                title: t(tokens.nav.list),
+                path: paths.linkedaccounts.index,
+              },
+              {
+                title: t(tokens.nav.addLinkedAccounts),
+                path: paths.linkedaccounts.add,
+              },
+            ],
+          },
+          {
             title: t(tokens.nav.tpaadd),
             path: paths.tpaadd,
             icon: (

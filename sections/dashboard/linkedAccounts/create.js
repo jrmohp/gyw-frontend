@@ -10,7 +10,8 @@ import StepLabel from '@mui/material/StepLabel';
 import Stepper from '@mui/material/Stepper';
 import SvgIcon from '@mui/material/SvgIcon';
 import Typography from '@mui/material/Typography';
-import Snackbar from '@mui/material/Snackbar';
+
+import { useRouter } from 'next/router';
 
 // You might need to create or modify these components based on your requirements
 import { AccountSourceStep } from './account-source-step';
@@ -58,6 +59,7 @@ export const AccountLinkingForm = () => {
   const [resultData, setResultData] = useState(null);
   const [ADD_ACCOUNT_URL, setADD_ACCOUNT_URL] = useState('');
   const [open, setOpen] = React.useState(false);
+  const router = useRouter();
 
 
   const handleNext = useCallback(() => {
@@ -87,7 +89,7 @@ export const AccountLinkingForm = () => {
     if (response.status === 201) {
       // Redirect to a specific page
       alert("ACCOUNT ADDED SUCCESSFULLY");
-      window.location.href = '/';
+      router.push("/linkedAccounts");
       // Update with your specific path
     }
 
@@ -183,7 +185,11 @@ export const AccountLinkingForm = () => {
   }, [handleBack, handleNext, handleComplete]);
 
   if (isComplete) {
-    return <AccountPreview />;
+    return  <AccountPreview
+      onBack={handleBack}
+      onNext={handleComplete}
+      data={resultData}
+    />;
   }
 
   return (

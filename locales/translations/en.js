@@ -5,6 +5,8 @@ export const en = {
   [tokens.nav.academy]: 'Academy',
   [tokens.nav.account]: 'Account',
   [tokens.nav.tpaadd]: 'TPA Add',
+  [tokens.nav.linkedAccounts]: 'Linked Accounts',
+  [tokens.nav.addLinkedAccounts]: 'Link New Account',
   [tokens.nav.analytics]: 'Analytics',
   [tokens.nav.auth]: 'Auth',
   [tokens.nav.blog]: 'Blog',

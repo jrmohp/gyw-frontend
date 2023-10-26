@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import { Seo } from 'src/components/seo';
 import { usePageView } from 'src/hooks/use-page-view';
 import { Layout as DashboardLayout } from 'src/layouts/dashboard';
-import { AccountLinkingForm} from 'src/sections/dashboard/tpa/create';
+import { AccountLinkingForm} from 'src/sections/dashboard/linkedAccounts/create';
 
 const Page = () => {
   usePageView();

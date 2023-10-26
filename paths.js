@@ -1,7 +1,11 @@
 export const paths = {
   index: '/',
   checkout: '/checkout',
-  tpaadd: '/tpa/add',
+  linkedaccounts:{
+    index: '/linkedAccounts',
+    add: '/linkedAccounts/add'
+  },
+  tpaadd: '/linkedAccounts/add',
   contact: '/contact',
   pricing: '/pricing',
   auth: {

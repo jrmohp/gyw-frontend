@@ -33,4 +33,4 @@ export const mapboxConfig = {
 
 export const version = '6.4.2';
 
-export const BACKEND_BASE_URL = 'http://127.0.0.1:8000';
+export const BACKEND_BASE_URL = 'https://web-maun8l9ngwjl.up-de-fra1-1.apps.run-on-seenode.com/';
