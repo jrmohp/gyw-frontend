@@ -32,6 +32,7 @@ import { store } from 'src/store';
 import { createTheme } from 'src/theme';
 import { createEmotionCache } from 'src/utils/create-emotion-cache';
 
+
 const clientSideEmotionCache = createEmotionCache();
 
 const CustomApp = (props) => {
@@ -54,6 +55,7 @@ const CustomApp = (props) => {
       <ReduxProvider store={store}>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <AuthProvider>
+
             <AuthConsumer>
               {(auth) => (
                 <SettingsProvider>
@@ -123,6 +125,7 @@ const CustomApp = (props) => {
                 </SettingsProvider>
               )}
             </AuthConsumer>
+
           </AuthProvider>
         </LocalizationProvider>
       </ReduxProvider>

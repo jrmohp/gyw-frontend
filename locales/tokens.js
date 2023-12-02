@@ -8,6 +8,7 @@ export const tokens = {
     tpaadd: 'nav.tpaadd',
     linkedAccounts: 'nav.linkedAccounts',
     addLinkedAccounts : 'nav.addLinkedAccounts',
+    mutualFundsIndex: 'nav.mutualFundsIndex',
     analytics: 'nav.analytics',
     auth: 'nav.auth',
     blog: 'nav.blog',

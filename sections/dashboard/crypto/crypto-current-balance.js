@@ -16,14 +16,30 @@ import { useTheme } from '@mui/material/styles';
 
 import { Chart } from 'src/components/chart';
 
-const useChartOptions = (labels) => {
+export const CryptoCurrentBalance = (props) => {
+  const { title,chartSeries, labels } = props;
+  const totalAmount = chartSeries.reduce((acc, item) => (acc += item), 0);
+  const formattedTotalAmount = numeral(totalAmount).format('\u20B90,0.00');
+
+  // Modify the chartSeries based on the second parameter
+  const modifiedChartSeries = chartSeries[1] < 0
+    ? [totalAmount, Math.abs(chartSeries[1])]
+    : [totalAmount,Math.abs(chartSeries[1])];
+
   const theme = useTheme();
 
-  return {
+
+
+  // Determine the color for the second parameter (chartSeries[1])
+  const secondParameterColor = chartSeries[1] < 0
+    ? theme.palette.error.main
+    : theme.palette.info.main;
+
+  const chartOptions = {
     chart: {
       background: 'transparent',
     },
-    colors: [theme.palette.primary.main, theme.palette.info.main, theme.palette.warning.main],
+    colors: [theme.palette.primary.main, secondParameterColor],
     dataLabels: {
       enabled: false,
     },
@@ -74,25 +90,22 @@ const useChartOptions = (labels) => {
       fillSeriesColor: false,
       y: {
         formatter(value) {
-          return numeral(value).format('$0,0.00');
+          return numeral(value).format('\u20B90,0.00');
         },
       },
     },
   };
-};
-
-export const CryptoCurrentBalance = (props) => {
-  const { chartSeries, labels } = props;
-  const chartOptions = useChartOptions(labels);
-  const totalAmount = chartSeries.reduce((acc, item) => (acc += item), 0);
-  const formattedTotalAmount = numeral(totalAmount).format('$0,0.00');
 
   return (
     <Card>
-      <CardHeader
-        title="Current Balance"
-        subheader="Balance across all your accounts"
-      />
+
+  <CardHeader
+  title={title}>
+
+
+
+  </CardHeader>
+
       <CardContent>
         <Stack
           alignItems="center"
@@ -112,7 +125,7 @@ export const CryptoCurrentBalance = (props) => {
             <Chart
               height={200}
               options={chartOptions}
-              series={chartSeries}
+              series={modifiedChartSeries}
               type="donut"
             />
           </Box>
@@ -146,7 +159,7 @@ export const CryptoCurrentBalance = (props) => {
                 }}
               >
                 {chartSeries.map((item, index) => {
-                  const amount = numeral(item).format('$0,0.00');
+                  const amount = numeral(item).format('\u20B90,0.00');
 
                   return (
                     <Stack
@@ -185,30 +198,30 @@ export const CryptoCurrentBalance = (props) => {
         </Stack>
       </CardContent>
       <Divider />
-      <CardActions>
-        <Button
-          color="inherit"
-          endIcon={
-            <SvgIcon fontSize="small">
-              <TrendUp02Icon />
-            </SvgIcon>
-          }
-          size="small"
-        >
-          Add funds
-        </Button>
-        <Button
-          color="inherit"
-          endIcon={
-            <SvgIcon fontSize="small">
-              <TrendDown02Icon />
-            </SvgIcon>
-          }
-          size="small"
-        >
-          Transfer funds
-        </Button>
-      </CardActions>
+      {/*<CardActions>*/}
+      {/*  <Button*/}
+      {/*    color="inherit"*/}
+      {/*    endIcon={*/}
+      {/*      <SvgIcon fontSize="small">*/}
+      {/*        <TrendUp02Icon />*/}
+      {/*      </SvgIcon>*/}
+      {/*    }*/}
+      {/*    size="small"*/}
+      {/*  >*/}
+      {/*    Add funds*/}
+      {/*  </Button>*/}
+      {/*  <Button*/}
+      {/*    color="inherit"*/}
+      {/*    endIcon={*/}
+      {/*      <SvgIcon fontSize="small">*/}
+      {/*        <TrendDown02Icon />*/}
+      {/*      </SvgIcon>*/}
+      {/*    }*/}
+      {/*    size="small"*/}
+      {/*  >*/}
+      {/*    Transfer funds*/}
+      {/*  </Button>*/}
+      {/*</CardActions>*/}
     </Card>
   );
 };

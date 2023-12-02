@@ -11,10 +11,15 @@ import { Seo } from 'src/components/seo';
 import { usePageView } from 'src/hooks/use-page-view';
 import { useSettings } from 'src/hooks/use-settings';
 import { Layout as DashboardLayout } from 'src/layouts/dashboard';
-import ScrollablePaper from "../components/scrollable-paper";
-import Popup from "../components/popup";
-import CustomDrawer from "../components/customdrawer";
+
+
 import { useMediaQuery} from '@mui/material';
+import ComponentA from "./test";
+import ComponentB from "./test2";
+import CustomDrawer from "../../components/customdrawer";
+import Popup from "../../components/popup";
+import {TickerProvider} from "../../contexts/tickerwealth/tickerContext";
+import TickerBuyForm from "../../components/custom/ticker-buy-mf";
 
 const Page = () => {
   const settings = useSettings();
@@ -41,7 +46,7 @@ const Page = () => {
   };
 
   const handleCloseDrawer = () => {
-   setopenDrawer(false);
+    setopenDrawer(false);
   };
 
 
@@ -90,15 +95,14 @@ const Page = () => {
                 </Stack>
               </div>
             </Stack>
-            <Box
-              sx={{
-                borderColor: 'neutral.300',
-                borderStyle: 'dashed',
-                borderWidth: 1,
-                height: 300,
-                p: '4px',
-              }}
-            />
+
+            <TickerProvider>
+              <TickerBuyForm />
+
+              <ComponentA />
+              <ComponentB />
+            </TickerProvider>
+
           </Stack>
 
           <CustomDrawer open={openDrawer} onClose={handleCloseDrawer} />

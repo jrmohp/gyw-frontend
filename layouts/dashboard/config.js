@@ -67,6 +67,15 @@ export const useSections = () => {
             ],
           },
           {
+            title: t(tokens.nav.mutualFundsIndex),
+            path: paths.mutualFunds.index,
+            icon: (
+              <SvgIcon fontSize="small">
+                <HomeSmileIcon />
+              </SvgIcon>
+            ),
+          },,
+          {
             title: t(tokens.nav.tpaadd),
             path: paths.tpaadd,
             icon: (

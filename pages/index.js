@@ -23,6 +23,7 @@ import { OverviewHelp } from 'src/sections/dashboard/overview/overview-help';
 import { OverviewJobs } from 'src/sections/dashboard/overview/overview-jobs';
 import { OverviewOpenTickets } from 'src/sections/dashboard/overview/overview-open-tickets';
 import { OverviewTips } from 'src/sections/dashboard/overview/overview-tips';
+import useFetchMutualFundData from "../hooks/use-FetchMutualFundData";
 
 const now = new Date();
 
@@ -30,6 +31,7 @@ const Page = () => {
   const settings = useSettings();
 
   usePageView();
+  useFetchMutualFundData();
 
   return (
     <>

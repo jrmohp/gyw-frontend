@@ -8,6 +8,9 @@ export const paths = {
   tpaadd: '/linkedAccounts/add',
   contact: '/contact',
   pricing: '/pricing',
+  mutualFunds:{
+    index:'/mutualFunds'
+  },
   auth: {
     auth0: {
       callback: '/auth/auth0/callback',
@@ -52,7 +55,7 @@ export const paths = {
     },
   },
   dashboard: {
-    index: '/dashboard',
+    index: '/',
     academy: {
       index: '/academy',
       courseDetails: '/academy/courses/:courseId',

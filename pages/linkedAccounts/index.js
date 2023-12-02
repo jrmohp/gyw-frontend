@@ -113,6 +113,7 @@ const LinkedAccountsPage = () => {
               Link New Account
             </Button>
           </Stack>
+          {linkedAccounts.length > 0 ? (
           <TableContainer component={Paper}>
             <Table aria-label="simple table">
               <TableHead>
@@ -157,7 +158,12 @@ const LinkedAccountsPage = () => {
               onPageChange={handleChangePage}
               onRowsPerPageChange={handleChangeRowsPerPage}
             />
-          </TableContainer>
+          </TableContainer> ) : (
+            <Typography variant="subtitle1"
+                        sx={{ mt: 2 }}>
+              No linked accounts available.
+            </Typography>
+            )}
         </Container>
       </Box>
     </>

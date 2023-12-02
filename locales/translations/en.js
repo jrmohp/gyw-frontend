@@ -7,6 +7,7 @@ export const en = {
   [tokens.nav.tpaadd]: 'TPA Add',
   [tokens.nav.linkedAccounts]: 'Linked Accounts',
   [tokens.nav.addLinkedAccounts]: 'Link New Account',
+  [tokens.nav.mutualFundsIndex]: 'Mutual Funds',
   [tokens.nav.analytics]: 'Analytics',
   [tokens.nav.auth]: 'Auth',
   [tokens.nav.blog]: 'Blog',
